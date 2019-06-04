@@ -28,13 +28,19 @@ class App extends Component {
     });
   }
 
+  replace = (gifId) => {
+    this.setState({
+      selectedGifId: gifId
+    });
+  }
+
   render() {
     return (
       <div>
         <div className="left-scene">
           <SearchBar searchF={this.search} />
           <div className="selected-gif">
-            <Gif id={this.state.selectedGifId} />
+            <Gif id={this.state.selectedGifId} replaceF={this.replace} />
           </div>
         </div>
         <div className="right-scene">
