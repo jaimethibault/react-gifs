@@ -15,6 +15,12 @@ class App extends Component {
     }
   }
 
+  replaceGif = (gifId) => {
+    this.setState({
+      selectedGifId: gifId
+    });
+  }
+
   search = (query) => {
     // return a list of gifs and update the state of the App
     giphy("wALTMYblLBjK3XIHeNwbPZtQd15pMXRj").search({
@@ -28,24 +34,18 @@ class App extends Component {
     });
   }
 
-  replace = (gifId) => {
-    this.setState({
-      selectedGifId: gifId
-    });
-  }
-
   render() {
     return (
       <div>
         <div className="left-scene">
           <SearchBar searchF={this.search} />
           <div className="selected-gif">
-            <Gif id={this.state.selectedGifId} replaceF={this.replace} />
+            <Gif id={this.state.selectedGifId} />
           </div>
         </div>
         <div className="right-scene">
           <div className="gif-list">
-            <GifList gifs={this.state.gifs} />
+            <GifList gifs={this.state.gifs} replaceF={this.replaceGif} />
           </div>
         </div>
       </div>

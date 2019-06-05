@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Gif extends Component {
   handleClick = (event) => {
     const regex = /\media\/(.+)\/giphy.gif/;
-    const gifId = event.target.src.match(regex)[1]
+    const gifId = event.target.src.match(regex)[1];
     this.props.replaceF(gifId);
     // call a method in the app to update the state of the selectedGif
   }
